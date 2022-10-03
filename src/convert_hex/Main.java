@@ -68,8 +68,8 @@ public class Main {
 		int start = 0;
 		String res = "";
  		while (start < nums.size() - 7) {
-			int lenName = (int) Long.parseLong(nums.get(start + 6), 16);
-			int total = lenName + 7;
+			int nameSize = (int) Long.parseLong(nums.get(start + 6), 16);
+			int total = nameSize + 7;
 			second += total;
 			if (second > 255) {
 				first += 1;
@@ -81,7 +81,7 @@ public class Main {
 				int dec = (int) Long.parseLong(nums.get(i), 16);
 				ch += (char) dec;
 			}
-			System.out.println(ch + "\t" + convertToNumber(lenName) + "\t" + convertToNumber(total) + "\t"
+			System.out.println(ch + "\t" + nameSize + "\t" + total + "\t"
 					+ convertToHex(first) + "\t" + convertToHex(second));
 
 			res += convertToHex(first) + convertToHex(second);
