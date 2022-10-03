@@ -24,13 +24,12 @@ public class Main {
 	public static void getHexNewData() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("First HEX: ");
-
 		int first = (int) Long.parseLong(sc.nextLine(), 16);
+
 		System.out.println("Second HEX: ");
-
 		int second = (int) Long.parseLong(sc.nextLine(), 16);
-		System.out.println("List numbers: ");
 
+		System.out.println("List numbers: ");
 		List<Integer> nums = new ArrayList<Integer>();
 		for (int i = 0; i < 16; i++) {
 			int input = sc.nextInt();
@@ -52,13 +51,12 @@ public class Main {
 	public static void getHexOldData() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("First HEX: ");
-
 		int first = (int) Long.parseLong(sc.nextLine(), 16);
+
 		System.out.println("Second HEX: ");
-
 		int second = (int) Long.parseLong(sc.nextLine(), 16);
-		System.out.println("List hex: ");
 
+		System.out.println("List hex: ");
 		List<String> nums = new ArrayList<String>();
 		String[] arr = sc.nextLine().split(" ");
 		for (int i = 0; i < arr.length; i++) {
