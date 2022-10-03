@@ -76,12 +76,12 @@ public class Main {
 				second -= 256;
 			}
 
-			String ch = "";
+			String name = "";
 			for (int i = start + 7; i < start + total; i++) {
 				int dec = (int) Long.parseLong(nums.get(i), 16);
-				ch += (char) dec;
+				name += (char) dec;
 			}
-			System.out.println(ch + "\t" + nameSize + "\t" + total + "\t"
+			System.out.println(name + "\t" + nameSize + "\t" + total + "\t"
 					+ convertToHex(first) + "\t" + convertToHex(second));
 
 			res += convertToHex(first) + convertToHex(second);
