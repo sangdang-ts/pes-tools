@@ -61,8 +61,8 @@ public class Main {
 
 		List<String> nums = new ArrayList<String>();
 		String[] arr = sc.nextLine().split(" ");
-		for (int j = 0; j < arr.length; j++) {
-			nums.add(arr[j]);
+		for (int i = 0; i < arr.length; i++) {
+			nums.add(arr[i]);
 		}
 
 		int start = 0;
