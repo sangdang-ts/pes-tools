@@ -35,7 +35,7 @@ public class Main {
 			int input = sc.nextInt();
 			nums.add(input);
 		}
-		
+
 		for (int i = 0; i < nums.size(); i++) {
 			second += nums.get(i);
 			if (second > 255) {
@@ -65,7 +65,13 @@ public class Main {
 
 		int start = 0;
 		String res = "";
- 		while (start < nums.size() - 7) {
+		List<String> names = new ArrayList<String>();
+		List<Integer> namesSize = new ArrayList<Integer>();
+		List<Integer> totalBytes = new ArrayList<Integer>();
+		List<String> firstBytes = new ArrayList<String>();
+		List<String> secondBytes = new ArrayList<String>();
+
+		while (start < nums.size() - 7) {
 			int nameSize = (int) Long.parseLong(nums.get(start + 6), 16);
 			int total = nameSize + 7;
 			second += total;
@@ -79,20 +85,42 @@ public class Main {
 				int dec = (int) Long.parseLong(nums.get(i), 16);
 				name += (char) dec;
 			}
-			System.out.println(name + "\t" + nameSize + "\t" + total + "\t"
-					+ convertToHex(first) + "\t" + convertToHex(second));
+			names.add(name);
+			namesSize.add(nameSize);
+			totalBytes.add(total);
+			firstBytes.add(convertToHex(first));
+			secondBytes.add(convertToHex(second));
+//			System.out.println(
+//					name + "\t" + nameSize + "\t" + total + "\t" + convertToHex(first) + "\t" + convertToHex(second));
 
 			res += convertToHex(first) + convertToHex(second);
 			start += total;
 		}
 
- 		System.out.println(res);
+		names.remove(0);
+		namesSize.remove(0);
+		totalBytes.remove(0);
+		firstBytes.remove(firstBytes.size() - 1);
+		secondBytes.remove(secondBytes.size() - 1);
+
+		List<EntryOldData> ents = new ArrayList<>();
+		for (int i = 0; i < names.size(); i++) {
+			EntryOldData ent = new EntryOldData(names.get(i), namesSize.get(i), totalBytes.get(i), firstBytes.get(i),
+					secondBytes.get(i));
+			ents.add(ent);
+		}
+
+		for (EntryOldData ent : ents) {
+			System.out.println(ent);
+		}
+
+		System.out.println(res);
 		sc.close();
 	}
 
 	public static void main(String[] args) {
-//		getHexNewData();
-		getHexOldData();
+		getHexNewData();
+//		getHexOldData();
 	}
 
 }
