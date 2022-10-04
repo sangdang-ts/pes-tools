@@ -64,7 +64,6 @@ public class Main {
 		}
 
 		int start = 0;
-		String res = "";
 		List<String> names = new ArrayList<String>();
 		List<Integer> namesSize = new ArrayList<Integer>();
 		List<Integer> totalBytes = new ArrayList<Integer>();
@@ -90,10 +89,6 @@ public class Main {
 			totalBytes.add(total);
 			firstBytes.add(convertToHex(first));
 			secondBytes.add(convertToHex(second));
-//			System.out.println(
-//					name + "\t" + nameSize + "\t" + total + "\t" + convertToHex(first) + "\t" + convertToHex(second));
-
-			res += convertToHex(first) + convertToHex(second);
 			start += total;
 		}
 
@@ -109,18 +104,23 @@ public class Main {
 					secondBytes.get(i));
 			ents.add(ent);
 		}
+		
+		System.out.println("-----");
 
+		String res = "";
 		for (EntryOldData ent : ents) {
 			System.out.println(ent);
+			res += ent.getFirstByte() + ent.getSecondByte();
 		}
-
+		
+		System.out.println("-----");
 		System.out.println(res);
 		sc.close();
 	}
 
 	public static void main(String[] args) {
-		getHexNewData();
-//		getHexOldData();
+//		getHexNewData();
+		getHexOldData();
 	}
 
 }
